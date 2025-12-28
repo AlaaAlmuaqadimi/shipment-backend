@@ -1,0 +1,62 @@
+<section id="batches" class="page">
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">الشحنات (Batches)</div>
+                <div class="card-sub">كل شحنة تضم مجموعة من الطلبات</div>
+              </div>
+              <button class="secondary-btn" type="button" onclick="openBatchModal()">➕ إنشاء شحنة</button>
+            </div>
+
+            <div class="table-wrap">
+              
+            <table>
+              <thead>
+                <tr>
+                  <th>رقم الشحنة</th>
+                  <th>كود شركة الشحن</th>
+                  <th>تاريخ الشحنة</th>
+                  <th>عدد الطلبات</th>
+                  <th>ت. الشراء</th>
+                  <th>قيمة البيع</th>
+                  <th>الربح</th>
+
+                  <!-- NEW -->
+                  <th>مصاريف خاصة</th>
+                  <th>الربح بعد الخصم</th>
+
+                  <th>الحالة</th>
+                  <th>تحكم</th>
+                </tr>
+              </thead>
+              <tbody id="batches-table"></tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">تفاصيل الشحنة</div>
+                <div class="card-sub" id="batch-details-sub">اختر شحنة من الجدول لعرض تفاصيلها</div>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>المستلم</th>
+                  <th>سعر البيع</th>
+                  <th>الربح</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody id="batch-details-table"></tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </section>

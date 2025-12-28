@@ -1,0 +1,168 @@
+<section id="orders" class="page">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">قائمة الطلبيات</div>
+              <div class="card-sub">إدارة كل الطلبيات، حالتها، وربح كل طلب</div>
+            </div>
+            <button class="secondary-btn" type="button" onclick="scrollToAddOrder()">➕ إضافة طلب</button>
+          </div>
+
+          <div class="search-row">
+            <div class="filter-chips">
+              <button class="chip active" onclick="filterOrders('all')">الكل</button>
+              <button class="chip" onclick="filterOrders('pending')">معلقة</button>
+              <button class="chip" onclick="filterOrders('delivered')">مستلمة</button>
+              <button class="chip" onclick="filterOrders('cancelled')">ملغاة</button>
+            </div>
+            <div class="search-input">
+              <input type="text" id="orders-search" placeholder="بحث بالمنتج أو المستلم..." oninput="renderOrdersTable()" />
+              <span>🔍</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>المستلم</th>
+                  <th>الهاتف</th>
+                  <th>الشحنة</th>
+                  <th>سعر الشراء (د.ل)</th>
+                  <th>سعر البيع (د.ل)</th>
+                  <th>الربح (د.ل)</th>
+                  <th>الحالة</th>
+                  <th>تحكم</th>
+                </tr>
+              </thead>
+              <tbody id="orders-table"></tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Add New Order -->
+        <div id="add-order-card" class="card" style="margin-top:16px;">
+          <div class="card-header">
+            <div>
+              <div class="card-title">إضافة طلب جديد</div>
+              <div class="card-sub"></div>
+            </div>
+            <span class="badge-soft">
+              سعر الصرف الحالي:
+              <span id="current-rate-badge">7.00</span> د.ل
+            </span>
+          </div>
+
+          <div class="grid grid-2">
+            <!-- Product & Batch -->
+            <div>
+              <div class="section-title-inline">
+                <h4 style="margin:0;">بيانات المنتج</h4> 
+              </div>
+
+              <div class="input-row">
+                <label>اسم المنتج</label>
+                <input type="text" id="product-name-input" placeholder="مثال: حذاء نايك أسود" />
+              </div>
+
+              <div class="two-cols">
+                <div class="input-row">
+                  <label>سعر الشراء للقطعة (GBP)</label>
+                  <input type="number" id="gbp-buy-input" step="0.01" placeholder="مثال: 20" />
+                </div>
+                <div class="input-row">
+                  <label>سعر البيع للقطعة (GBP)</label>
+                  <input type="number" id="gbp-sell-input" step="0.01" placeholder="مثال: 25" />
+                </div>
+              </div>
+
+              <h4 style="margin:10px 0 4px;">الحساب بالليبي</h4>
+              <div class="two-cols">
+                <div class="input-row">
+                  <label>سعر الشراء (LYD)  </label>
+                  <input type="text" id="cost-lyd-1" inputmode="decimal" class="num" placeholder="سيتم تعبئته تلقائيًا" />
+                </div>
+                <div class="input-row">
+                  <label>سعر البيع (LYD) </label>
+                  <input type="number" id="sell-lyd-1" step="0.01" placeholder="مثال: 220" />
+                </div>
+              </div>
+
+              <div class="two-cols">
+                <div class="input-row">
+                  <label>الربح (GBP)</label>
+                  <input type="text" id="profit-gbp-1" readonly />
+                </div>
+                <div class="input-row">
+                  <label>الربح (LYD)</label>
+                  <input type="text" id="profit-lyd-1" readonly />
+                </div>
+              </div>
+
+              <div class="two-cols" style="margin-top:8px;">
+                <div class="input-row">
+                  <label>الشحنة (Batch)</label>
+                  <select id="batch-select">
+                    <option value="">بدون شحنة</option>
+                  </select>
+                </div>
+                <div class="input-row">
+                  <label>المندوب</label>
+                  <input type="text" id="delegate-input" placeholder="مثال: محمد المندوب" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer & Summary -->
+            <div>
+              <h4 style="margin-top:0;">بيانات المستلم</h4>
+
+              <div class="input-row">
+                <label>اسم المستلم</label>
+                <input type="text" id="customer-name-input" placeholder="اسم الزبون" />
+              </div>
+              <div class="input-row">
+                <label>رقم الهاتف</label>
+                <input type="text" id="phone-input" placeholder="09XX-XXXXXX" />
+              </div>
+              <div class="input-row">
+                <label>العنوان</label>
+                <textarea id="address-input" rows="2" placeholder="المدينة، الشارع، أي تفاصيل إضافية"></textarea>
+              </div>
+
+              <h4 style="margin:10px 0 4px;">ملخص الحساب (عرض فقط)</h4>
+
+              <div class="two-cols">
+                <div class="input-row">
+                  <label>سعر الشراء (LYD)</label>
+                  <input type="text" id="cost-lyd-2" readonly />
+                </div>
+                <div class="input-row">
+                  <label>سعر البيع (LYD)</label>
+                  <input type="text" id="sell-lyd-2" readonly />
+                </div>
+              </div>
+
+              <div class="two-cols">
+                <div class="input-row">
+                  <label>الربح (GBP)</label>
+                  <input type="text" id="profit-gbp-2" readonly />
+                </div>
+                <div class="input-row">
+                  <label>الربح (LYD)</label>
+                  <input type="text" id="profit-lyd-2" readonly />
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
+                <button class="secondary-btn" type="button" onclick="resetOrderForm()">إلغاء</button>
+                <button class="primary-btn" type="button" onclick="saveOrder()">حفظ الطلب</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </section>

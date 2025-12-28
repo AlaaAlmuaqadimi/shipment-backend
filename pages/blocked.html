@@ -1,0 +1,81 @@
+<section id="blocked" class="page">
+        <div class="grid grid-2">
+          <!-- Add Blocked Customer -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">إضافة زبون محظور 🚫</div>
+                <div class="card-sub">منع زبائن محددين من إنشاء طلبات جديدة (داخل الجلسة فقط)</div>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <label>اسم الزبون</label>
+              <input type="text" id="blocked-name" placeholder="مثال: أحمد علي" />
+            </div>
+
+            <div class="input-row">
+              <label>رقم الهاتف</label>
+              <input type="text" id="blocked-phone" placeholder="09XX-XXXXXXX" />
+            </div>
+
+            <div class="input-row">
+              <label>السبب</label>
+              <textarea id="blocked-reason" rows="2" placeholder="مثال: طلبات وهمية / عدم استلام"></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:8px;">
+              <button class="secondary-btn" type="button" onclick="resetBlockedForm()">إلغاء</button>
+              <button class="primary-btn" type="button" onclick="addBlockedCustomer()">حفظ الحظر</button>
+            </div>
+          </div>
+
+          <!-- Blocked List -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">قائمة الزبائن المحظورين</div>
+                <div class="card-sub">بحث سريع + إزالة الحظر أو حذف السجل</div>
+              </div>
+            </div>
+
+            <div class="search-row">
+              <div class="badge-soft">
+                العدد: <span id="blocked-count">0</span>
+              </div>
+
+              <div class="search-input">
+                <input type="text" id="blocked-search" placeholder="بحث بالاسم أو الهاتف..." oninput="renderBlockedTable()" />
+                <span>🔍</span>
+              </div>
+            </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>الاسم</th>
+                  <th>الهاتف</th>
+                  <th>السبب</th>
+                  <th>الحالة</th>
+                  <th>تحكم</th>
+                </tr>
+              </thead>
+
+              <!-- ملاحظة: صف "زبون تجريبي" يجب أن يكون داخل tbody وليس thead -->
+              <tbody id="blocked-table">
+                <tr>
+                  <td>زبون تجريبي</td>
+                  <td>0912345678</td>
+                  <td>طلبات وهمية</td>
+                  <td><span class="status-pill status-blocked">محظور</span></td>
+                  <td class="table-actions">
+                    <button class="icon-btn">إزالة الحظر</button>
+                    <button class="icon-btn danger">حذف</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+      </section>

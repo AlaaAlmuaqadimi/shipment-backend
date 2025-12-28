@@ -1,0 +1,59 @@
+<div id="batch-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">إنشاء شحنة جديدة</div>
+          <div class="modal-sub">أدخل بيانات الشحنة يدويًا</div>
+        </div>
+        <button class="icon-btn" type="button" onclick="closeBatchModal()">✖</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="two-cols">
+          <div class="input-row">
+            <label>رقم الشحنة الداخلي (batchId)</label>
+            <input type="text" id="batch-id-input" placeholder="مثال: B-1003" />
+          </div>
+
+          <div class="input-row">
+            <label>كود شركة الشحن (shippingCompanyCode)</label>
+            <input type="text" id="shipping-code-input" placeholder="مثال: ARX-TRP / UPS-001" />
+          </div>
+        </div>
+
+        <div class="two-cols">
+          <div class="input-row">
+            <label>تاريخ الشحنة</label>
+            <input type="date" id="ship-date-input" />
+          </div>
+
+          <div class="input-row">
+            <label>مصاريف خاصة / خصومات (LYD)</label>
+            <input type="number" id="batch-extra-costs-input" step="0.01" placeholder="مثال: 15.00" />
+          </div>
+        </div>
+
+        <div class="two-cols">
+          <div class="input-row">
+            <label>الحالة</label>
+            <select id="batch-status-input">
+              <option value="open">open (مفتوحة)</option>
+              <option value="closed">closed (مغلقة)</option>
+            </select>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="input-row">
+          <label>ملاحظات</label>
+          <textarea id="batch-notes-input" rows="3" placeholder="أي ملاحظات عن الشحنة..."></textarea>
+        </div>
+      </div>
+
+
+      <div class="modal-footer">
+        <button class="secondary-btn" type="button" onclick="closeBatchModal()">إلغاء</button>
+        <button class="primary-btn" type="button" onclick="createBatchFromModal()">حفظ الشحنة</button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,70 @@
+  <section id="dashboard" class="page active">
+        <div class="grid grid-3">
+          <div class="stat-card">
+            <div class="stat-label">إجمالي عدد الطلبيات</div>
+            <div class="stat-value" id="stat-total-orders">0</div>
+            <div class="stat-chip">كل الوقت</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">الطلبيات المعلقة</div>
+            <div class="stat-value" id="stat-pending-orders">0</div>
+            <div class="stat-chip">تحتاج متابعة</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">إجمالي ربح النظام</div>
+            <div class="stat-value highlight-profit" id="stat-total-profit">0 د.ل</div>
+            <div class="stat-chip">الطلبات المستلمة فقط</div>
+          </div>
+        </div>
+
+        <div style="margin:20px 0;">
+          
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">آخر الطلبيات</div>
+                <div class="card-sub">نظرة سريعة على أحدث الطلبيات المسجلة</div>
+              </div>
+            </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>المستلم</th>
+                  <th>الربح (د.ل)</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-latest-orders"></tbody>
+            </table>
+          </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">الشحنات</div>
+                <div class="card-sub">إحصائيات سريعة عن الشحنات</div>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+              <thead>
+                <tr>
+                  <th>رقم الشحنة</th>
+                  <th>عدد الطلبيات</th>
+                  <th>ربح الشحنة</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-batches"></tbody>
+            </table>
+            </div>
+            
+          </div>
+        </div>
+      </section>

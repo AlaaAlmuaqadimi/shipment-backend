@@ -1,0 +1,63 @@
+<section id="analytics" class="page">
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">الربح حسب الشحنة</div>
+                <div class="card-sub">ملخص سريع لربح كل Batch</div>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الشحنة</th>
+                    <th>عدد الطلبات</th>
+                    <th>مصاريف خاصة</th>
+                    <th>ربح بعد الخصم</th>
+                  </tr>
+                </thead>
+                <tbody id="analytics-by-batch"></tbody>
+              </table>
+            </div>
+
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">ملخص الربح</div>
+                <div class="card-sub">أرباح الطلبات المستلمة فقط</div>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <label>إجمالي تكلفة الشراء (LYD)</label>
+              <input type="text" id="analytics-total-cost" readonly />
+            </div>
+            <div class="input-row">
+              <label>إجمالي قيمة البيع (LYD)</label>
+              <input type="text" id="analytics-total-sell" readonly />
+            </div>
+            <div class="input-row">
+              <label>إجمالي الربح (LYD)</label>
+              <input type="text" id="analytics-total-profit" readonly />
+            </div>
+            <div class="input-row">
+              <label>متوسط الربح لكل طلب مستلم</label>
+              <input type="text" id="analytics-avg-profit" readonly />
+            </div>
+            <div class="input-row">
+              <label>إجمالي المصاريف الخاصة على الشحنات (LYD)</label>
+              <input type="text" id="analytics-total-batch-extra" readonly />
+            </div>
+
+            <div class="input-row">
+              <label>إجمالي الربح بعد خصم مصاريف الشحنات (LYD)</label>
+              <input type="text" id="analytics-net-profit-after-batch-extra" readonly />
+            </div>
+
+          </div>
+        </div>
+      </section>

@@ -1,0 +1,42 @@
+<section id="users" class="page">
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">إدارة المستخدمين</div>
+                <div class="card-sub">إضافة مستخدمين وتحديد دورهم في النظام</div>
+              </div>
+              <button class="secondary-btn" type="button" onclick="createDummyUser()">➕ إضافة مستخدم</button>
+            </div>
+        <div class="table-wrap">  
+            <table>
+              <thead>
+                <tr>
+                  <th>الاسم</th>
+                  <th>اليوزر</th>
+                  <th>الدور</th>
+                  <th>صلاحيات</th>
+                  <th>تحكم</th>
+                </tr>
+              </thead>
+              <tbody id="users-table"></tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">مستويات الصلاحيات</div>
+                <div class="card-sub">ملخص بسيط لأنواع الأدوار</div>
+              </div>
+            </div>
+
+            <ul style="padding-right:18px; margin:0; font-size:var(--text-sm); color:var(--color-text-muted);">
+              <li><strong>Admin</strong>: إضافة / تعديل / حذف الطلبيات، الشحنات، المستخدمين، تغيير الإعدادات.</li>
+              <li><strong>Manager</strong>: إضافة / تعديل الطلبيات و الشحنات + عرض الإحصائيات.</li>
+              <li><strong>Operator</strong>: إضافة طلب جديد + تغيير حالة الطلب فقط.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
